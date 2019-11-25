@@ -2,8 +2,10 @@ const {
     GraphQLObjectType,
     GraphQLString,
     GraphQLSchema,
-    GraphQLInt
+    GraphQLInt,
+    GraphQLList
 } = require('graphql')
+const Companhias = require('./orm/Companhias')
 
 const CompType = new GraphQLObjectType({
     name: 'Companhia',
@@ -23,13 +25,11 @@ module.exports = new GraphQLSchema({
     query: new GraphQLObjectType({
         name: 'RootQueryType',
         fields: {
-            companhia: {
-                type: CompType,
+            companhias: {
+                type: new GraphQLList(CompType),
                 resolve() {
-                    return {
-                        id: 159, 
-                        nome: 'Teste'
-                    }
+                    
+                    return Companhias.findAll()
                 }
             }
         }
