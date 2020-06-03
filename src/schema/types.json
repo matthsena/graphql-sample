@@ -1,0 +1,42 @@
+[
+    {
+        "typeName": "Movie",
+        "typeData": [
+            {
+                "fieldName": "id",
+                "dataType": "ID",
+                "required": true
+            },
+            {
+                "fieldName": "title",
+                "dataType": "String",
+                "required": true
+            },
+            {
+                "fieldName": "year",
+                "dataType": "Int",
+                "required": true
+            },
+            {
+                "fieldName": "duration",
+                "dataType": "Int",
+                "required": true
+            },
+            {
+                "fieldName": "genre",
+                "dataType": "String",
+                "required": true
+            },
+            {
+                "fieldName": "imdbRate",
+                "dataType": "Float",
+                "required": true
+            },
+            {
+                "fieldName": "director",
+                "dataType": "String",
+                "required": false
+            }
+        ]
+    }
+]
