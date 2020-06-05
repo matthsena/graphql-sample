@@ -1,0 +1,32 @@
+[
+    {
+        "queryName": "getMovies",
+        "queryParams": null,
+        "return": {
+            "typeName": "Movie",
+            "type": "array" 
+        }
+    },
+    {
+        "queryName": "bestMovie",
+        "queryParams": null,
+        "return": {
+            "typeName": "Movie",
+            "type": "normal" 
+        }
+    },
+    {
+        "queryName": "searchMovie",
+        "queryParams": [
+            {
+                "fieldName": "_id",
+                "dataType": "ID",
+                "required": false
+            }
+        ],
+        "return": {
+            "typeName": "Movie",
+            "type": "normal" 
+        }
+    }
+]
