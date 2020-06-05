@@ -30,20 +30,44 @@ async function buildReturn(returns) {
     if (returns.type == "array") {
         str = `[${returns.typeName}]`
     } else if (returns.type == "normal") {
-        str= returns.typeName
+        str = returns.typeName
     }
     return str
 }
 
 async function buildQueries() {
-    let str = ""
+    let arrqueries = []
 
     await queries.map(async query => {
-        str += `\n${query.queryName}${(query.queryParams) ? await buildParams(query.queryParams) : ''}: ${await buildReturn(query.return)}`
-        console.log(str)
+        const q = `${query.queryName}${(query.queryParams) ? await buildParams(query.queryParams) : ''}: ${await buildReturn(query.return)}`
+        arrqueries.push(q);
     })
+
+    process.nextTick(() => {
+        const reducer = (a, b) => a + '\n' + b;
+        let x = arrqueries.reduce(reducer)
+
+        console.log(x)
+    })
+
+
 }
-buildQueries();
+
+async function buildTypes() {
+    try {
+        let str = "";
+
+        await types.map(async type => {
+            str += `\ntype ${type.typeName} {\n${await data(type.typeData)}}\n`
+        })
+        console.log(str)
+
+    } catch (error) {
+        console.error(error)
+    }
+}
+buildTypes();
+buildQueries()
 
 module.exports = {
     buildType() {
