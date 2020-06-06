@@ -9,11 +9,20 @@ async function buildSchema() {
         type ${type.typeName}
         { 
             ${await data(type.typeData)}
-         }\n
-        `
+        }\n`
     })
+    await buildQueries().then(resp => {
+        mySchema += `
+            type Query {
+                ${resp.reduce((a,b) => a + '\n' + b)}
+            }\n`
+    })
+    // build all queries
+    // await queries.map(async )
     return (mySchema).replace(/  /g, '');
 }
+
+
 
 async function data(typeData) {
     let datas = []
@@ -57,12 +66,12 @@ async function buildQueries() {
         arrqueries.push(q);
     })
 
-    process.nextTick(() => {
-        const reducer = (a, b) => a + '\n' + b;
-        let x = arrqueries.reduce(reducer)
+    // process.nextTick(() => {
+    //     const reducer = (a, b) => a + '\n' + b;
+    //     let x = arrqueries.reduce(reducer)
 
-        console.log(x)
-    })
+        return(arrqueries)
+    // })
 
 
 }
@@ -80,12 +89,12 @@ async function buildTypes() {
         console.error(error)
     }
 }
-buildTypes();
-// buildQueries()
-let x = buildSchema()
-x.then(y => {
-    console.log(y)
-})
+// buildTypes();
+// buildQueries().then(r => console.log(r))
+// let x = buildSchema()
+// x.then(y => {
+//     console.log(y)
+// })
 module.exports = {
     buildType() {
         return new Promise(async (resolve, reject) => {
