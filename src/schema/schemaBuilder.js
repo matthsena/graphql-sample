@@ -32,34 +32,15 @@ async function data(typeData) {
     return datas.reduce(reducer)
 }
 
-async function buildParams(params) {
-    let str = "("
-    params.map((param, index) => {
-        if (index + 1 >= params.length) {
-            str += `${param.fieldName}: ${param.dataType}${param.required ? "!" : ""})`
-        } else {
-            str += `${param.fieldName}: ${param.dataType}${param.required ? "!" : ""},`
-        }
-    })
-
-    return str
-}
-
-async function buildReturn(returns) {
-    let str = ''
-    if (returns.type == "array") {
-        str = `[${returns.typeName}]`
-    } else if (returns.type == "normal") {
-        str = returns.typeName
-    }
-    return str
-}
-
 async function buildQueries() {
+
+    const buildReturn = (returns) => (returns.type == "array") ? `[${returns.typeName}]` : returns.typeName
+    const buildParams = (params) => params.map(param => `${param.fieldName}: ${param.dataType}${param.required ? "!" : ""}`)
+
     let arrqueries = []
 
     await queries.map(async query => {
-        const q = `${query.queryName}${(query.queryParams) ? await buildParams(query.queryParams) : ''}: ${await buildReturn(query.return)}`
+        const q = `${query.queryName}${(query.queryParams) ? '(' + await buildParams(query.queryParams) + ')' : ''}: ${await buildReturn(query.return)}`
         arrqueries.push(q);
     })
 
