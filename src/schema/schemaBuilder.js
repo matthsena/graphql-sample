@@ -1,5 +1,19 @@
 const types = require('./types.json')
 const queries = require('./queries.json')
+// building schema
+async function buildSchema() {
+    let mySchema = ''
+    // build each type
+    await types.map(async type => {
+        mySchema += `
+        type ${type.typeName}
+        { 
+            ${await data(type.typeData)}
+         }\n
+        `
+    })
+    return (mySchema).replace(/  /g, '');
+}
 
 async function data(typeData) {
     let datas = []
@@ -67,8 +81,11 @@ async function buildTypes() {
     }
 }
 buildTypes();
-buildQueries()
-
+// buildQueries()
+let x = buildSchema()
+x.then(y => {
+    console.log(y)
+})
 module.exports = {
     buildType() {
         return new Promise(async (resolve, reject) => {
