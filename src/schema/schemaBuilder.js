@@ -11,18 +11,15 @@ async function buildSchema() {
             ${await data(type.typeData)}
         }\n`
     })
+    // build all queries
     await buildQueries().then(resp => {
         mySchema += `
             type Query {
                 ${resp.reduce((a,b) => a + '\n' + b)}
             }\n`
     })
-    // build all queries
-    // await queries.map(async )
     return (mySchema).replace(/  /g, '');
 }
-
-
 
 async function data(typeData) {
     let datas = []
@@ -66,49 +63,12 @@ async function buildQueries() {
         arrqueries.push(q);
     })
 
-    // process.nextTick(() => {
-    //     const reducer = (a, b) => a + '\n' + b;
-    //     let x = arrqueries.reduce(reducer)
-
-        return(arrqueries)
-    // })
-
+    return (arrqueries)
 
 }
 
-async function buildTypes() {
-    try {
-        let str = "";
+let x = buildSchema()
+x.then(y => {
+    console.log(y)
 
-        await types.map(async type => {
-            str += `\ntype ${type.typeName} {\n${await data(type.typeData)}}\n`
-        })
-        console.log(str)
-
-    } catch (error) {
-        console.error(error)
-    }
-}
-// buildTypes();
-// buildQueries().then(r => console.log(r))
-// let x = buildSchema()
-// x.then(y => {
-//     console.log(y)
-// })
-module.exports = {
-    buildType() {
-        return new Promise(async (resolve, reject) => {
-            try {
-                let str = "";
-
-                await types.map(async type => {
-                    str += `\ntype ${type.typeName} {\n${await data(type.typeData)}}\n`
-                })
-                resolve(str)
-
-            } catch (error) {
-                reject(error)
-            }
-        })
-    }
-}
+}).catch(e => console.error(e))
