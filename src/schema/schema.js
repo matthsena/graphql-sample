@@ -2,12 +2,9 @@ const {
     buildSchema
 } = require('graphql')
 
-const builder = require('./schemaBuilder')
+const { schemaBuilder } = require('./schemaBuilder')
 
-// builder.buildType().then(r => {
-//     console.log(r)
-// }).catch(e => console.log(e))
-// ${builder.buildType().then(r => r)}
+schemaBuilder().then(r => console.log(r))
 
 const schema = buildSchema(`
     # Types

@@ -1,7 +1,7 @@
 const types = require('./types.json')
 const queries = require('./queries.json')
 // building schema
-async function buildSchema() {
+async function schemaBuilder() {
     let mySchema = ''
     // build each type
     await types.map(async type => {
@@ -42,4 +42,4 @@ async function buildQueries() {
     return (arrayQueries)
 }
 
-buildSchema().then(y => console.log(y)).catch(e => console.error(e))
+module.exports.schemaBuilder = schemaBuilder;
