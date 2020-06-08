@@ -3,7 +3,7 @@ const fs = require('fs')
 const transpiler = fileName => {
     try {
 
-        return fs.readFileSync(`${__dirname}/${fileName}`, 'utf-8')
+        return fs.readFileSync(`${__dirname}/${fileName}.gqx`, 'utf-8')
         
     } catch (error) {
         console.log(error)
