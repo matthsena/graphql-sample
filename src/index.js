@@ -4,6 +4,7 @@ const {
     schema
 } = require('./schema/schema')
 const rootResolver = require('./resolver/rootResolver')
+const cors = require('cors')
 
 // Basic auth
 const loggingMiddleware = (req, res, next) => {
@@ -24,7 +25,7 @@ const loggingMiddleware = (req, res, next) => {
 }
 
 const app = express()
-
+app.use(cors())
 app.use(loggingMiddleware);
 
 app.use('/graphql', graphqlHTTP({
