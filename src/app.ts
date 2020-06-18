@@ -8,22 +8,17 @@ class App {
     public constructor() {
       this.express = express();
       this.middlewares();
-      this.routes();
     }
 
     private middlewares(): void {
-      this.express.use(express.json());
       this.express.use(cors());
+      this.express.use(express.json());
     }
 
     static database(): void {
       mongoose.connect('mongodb://HOST:PORT/DB_NAME', {
         useNewUrlParser: true,
       });
-    }
-
-    private routes(): void {
-      this.express.get('/', (req, res) => res.send('hello world'));
     }
 }
 
