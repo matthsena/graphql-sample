@@ -1,15 +1,12 @@
-import GraphQLHTTP from 'express-graphql';
 import app from './app';
-import rootResolver from './resolver/rootResolver';
 import { schema } from './schema/schema';
 
 try {
-  app.use('/', GraphQLHTTP({
-    schema,
-    rootValue: rootResolver,
-    graphiql: true,
-  }));
+  app.GraphQLServer(schema);
+  app.express.listen(4000, () => {
+    console.log('running');
+    console.log(process.env.GRAPHIQL);
+  });
 } catch (error) {
   throw new Error(error);
 }
-app.listen(3000);
