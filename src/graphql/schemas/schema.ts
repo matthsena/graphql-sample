@@ -1,21 +1,8 @@
 import { buildSchema, GraphQLSchema } from 'graphql';
+import * as fs from 'fs';
 
-const schema: GraphQLSchema = buildSchema(`
-type Movie { 
-    id: ID!, 
-    title: String!, 
-    year: Int!, 
-    duration: Int!, 
-    genre: String!, 
-    imdbRate: Float!, 
-    director: String 
-} 
+const source: string = fs.readFileSync(`${__dirname}/myschema.gql`, 'utf-8');
 
-type Query { 
-    getMovies: [Movie], 
-    bestMovie: Movie, 
-    searchMovie(_id: ID): Movie 
-}
-`);
+const schema: GraphQLSchema = buildSchema(source);
 
 export default schema;
