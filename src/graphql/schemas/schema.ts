@@ -1,7 +1,7 @@
 import { buildSchema, GraphQLSchema } from 'graphql';
-import * as fs from 'fs';
+import merge from '../../functions/merge';
 
-const source: string = fs.readFileSync(`${__dirname}/myschema.gql`, 'utf-8');
+const source: string = merge.MergeSchemas(__dirname);
 
 const schema: GraphQLSchema = buildSchema(source);
 
