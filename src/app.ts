@@ -3,11 +3,26 @@ import cors from 'cors';
 import GraphQLHTTP from 'express-graphql';
 import mongoose from 'mongoose';
 import { GraphQLSchema } from 'graphql';
-import rootResolver from './resolver/rootResolver';
+import resolvers from './graphql/resolvers/rootResolver';
 
 interface IApp {
-  GraphQLServer(schema: GraphQLSchema): void;
-  // authentication(): void;
+  GraphQLServer(schema: GraphQLSchema, path?: string): void;
+}
+
+type Movies = {
+  id?: number,
+  title?: string,
+  year?: number,
+  duration?: number,
+  genre?: string,
+  imdbRate?: number,
+  director?: string
+}
+
+interface IResolvers {
+  getMovies(): Array<Movies>,
+  bestMovies(): Movies,
+  searchMovie(_id: number): Movies
 }
 
 class App implements IApp {
@@ -30,11 +45,11 @@ class App implements IApp {
       });
     }
 
-    public GraphQLServer(schema: GraphQLSchema): void {
+    public GraphQLServer(schema: GraphQLSchema, path?: string): void {
       try {
-        this.express.use('/', GraphQLHTTP({
+        this.express.use(path || '/', GraphQLHTTP({
           schema,
-          rootValue: rootResolver,
+          rootValue: resolvers,
           graphiql: <boolean> <unknown> process.env.GRAPHIQL,
         }));
       } catch (error) {
