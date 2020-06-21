@@ -1,4 +1,3 @@
-/* eslint-disable import/no-unresolved */
 import { buildSchema, GraphQLSchema } from 'graphql';
 import merge from '@graphql-sailboat/mergeSchema';
 
