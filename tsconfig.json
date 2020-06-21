@@ -16,8 +16,8 @@
     "forceConsistentCasingInFileNames": true,
     "baseUrl": ".",
     "paths": {
-      "@graphql-sailboat/*": ["src/@graphql-func/*"],
-      "@app": ["src/app.ts"]
+      "@graphql-sailboat/*": ["src/@graphql-func/*","samples/imdb-top-movies/@graphql-func/*"],
+      "@app": ["src/app.ts", "samples/imdb-top-movies/app.ts"]
     }
   },
   "include": ["src/**/*"]
