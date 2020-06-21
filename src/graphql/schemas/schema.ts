@@ -1,5 +1,6 @@
+/* eslint-disable import/no-unresolved */
 import { buildSchema, GraphQLSchema } from 'graphql';
-import merge from '../../functions/merge';
+import merge from '@graphql-sailboat/mergeSchema';
 
 const source: string = merge.MergeSchemas(__dirname);
 
