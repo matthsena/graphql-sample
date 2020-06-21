@@ -17,6 +17,7 @@
     "baseUrl": ".",
     "paths": {
       "@graphql-sailboat/*": ["src/@graphql-func/*"],
+      "@app": ["src/app.ts"]
     }
   },
   "include": ["src/**/*"]

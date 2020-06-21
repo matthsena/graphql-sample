@@ -16,6 +16,7 @@ module.exports = {
       {
         alias: {
           "@graphql-sailboat": "./src/@graphql-func",
+          "@app": "./src/app.js",
         },
       },
     ],
