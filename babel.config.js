@@ -15,10 +15,7 @@ module.exports = {
       "module-resolver",
       {
         alias: {
-          "@config": "./src/config",
-          "@models": "./src/models",
-          "@controllers": "./src/controllers",
-          "@views": "./src/views",
+          "@graphql-sailboat": "./src/@graphql-func",
         },
       },
     ],
