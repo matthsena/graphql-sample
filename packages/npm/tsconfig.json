@@ -1,19 +1,8 @@
 {
+  "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "target": "es2017",
-    "module": "commonjs",
-    "lib": ["es6"],
-    "allowJs": true,
     "outDir": "./dist",
-    "rootDir": "./src",
-    "removeComments": true,
-    "typeRoots": ["../../node_modules/@types", "./src/@types"],
-    "esModuleInterop": true,
-    "resolveJsonModule": true,
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
-    "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true,
+    "rootDir": "./src",    
     "baseUrl": ".",
     "paths": {
       "@graphql-sailboat/*": ["src/@graphql-func/*","packages/biolerplate/samples/imdb-top-movies/@graphql-func/*"],
