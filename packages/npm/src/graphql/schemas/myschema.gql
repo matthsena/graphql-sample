@@ -1,0 +1,4 @@
+# Write here types, inputs, queries and/or mutations
+type Query { 
+    helloWorld: String
+}
