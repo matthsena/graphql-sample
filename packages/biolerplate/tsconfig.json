@@ -7,7 +7,7 @@
     "outDir": "./dist",
     "rootDir": "./src",
     "removeComments": true,
-    "typeRoots": ["./node_modules/@types", "./src/@types"],
+    "typeRoots": ["../../node_modules/@types", "./src/@types"],
     "esModuleInterop": true,
     "resolveJsonModule": true,
     "experimentalDecorators": true,
@@ -16,8 +16,8 @@
     "forceConsistentCasingInFileNames": true,
     "baseUrl": ".",
     "paths": {
-      "@graphql-sailboat/*": ["src/@graphql-func/*","samples/imdb-top-movies/@graphql-func/*"],
-      "@app": ["src/app.ts", "samples/imdb-top-movies/app.ts"]
+      "@graphql-sailboat/*": ["src/@graphql-func/*","packages/biolerplate/samples/imdb-top-movies/@graphql-func/*"],
+      "@app": ["src/app.ts", "packages/biolerplate/samples/imdb-top-movies/app.ts"]
     }
   },
   "include": ["src/**/*"]
