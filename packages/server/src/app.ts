@@ -1,10 +1,15 @@
 import express from 'express';
 import cors from 'cors';
 import GraphQLHTTP from 'express-graphql';
-import { GraphQLSchema } from 'graphql';
+import { GraphQLSchema, buildSchema } from 'graphql';
 
 interface IApp {
-  GraphQLServer(schema: GraphQLSchema, path?: string): void;
+  GraphQLServer(schema: GraphQLSchema, resolvers: unknown, server: serverOptions): void;
+}
+
+type serverOptions = {
+  path?: string,
+  graphiql?: boolean
 }
 
 class App implements IApp {
@@ -20,12 +25,12 @@ class App implements IApp {
       this.express.use(express.json());
     }
 
-    public GraphQLServer(schema: GraphQLSchema, resolvers: any, path?: string): void {
+    public GraphQLServer(schema: GraphQLSchema, resolvers: unknown, server: serverOptions): void {
       try {
-        this.express.use(path || '/', GraphQLHTTP({
+        this.express.use(server.path || '/', GraphQLHTTP({
           schema,
           rootValue: resolvers,
-          graphiql: <boolean> <unknown> process.env.GRAPHIQL || true,
+          graphiql: server.graphiql || false,
         }));
       } catch (error) {
         throw new Error(error);
