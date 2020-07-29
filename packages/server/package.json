@@ -1,5 +1,5 @@
 {
-  "name": "@graphql-sailboat/server",
+  "name": "graphql-sailboat",
   "version": "1.0.2",
   "description": "",
   "main": "src/app.ts",
@@ -41,5 +41,6 @@
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"
-  }
+  },
+  "gitHead": "7a3e3cecac5c6faf97f33f99b1b1c3190b3ac59d"
 }
