@@ -2,7 +2,6 @@ import express from 'express';
 import cors from 'cors';
 import GraphQLHTTP from 'express-graphql';
 import { GraphQLSchema } from 'graphql';
-import resolvers from './graphql/resolvers/rootResolver';
 
 interface IApp {
   GraphQLServer(schema: GraphQLSchema, path?: string): void;
@@ -21,7 +20,7 @@ class App implements IApp {
       this.express.use(express.json());
     }
 
-    public GraphQLServer(schema: GraphQLSchema, path?: string): void {
+    public GraphQLServer(schema: GraphQLSchema, resolvers: any, path?: string): void {
       try {
         this.express.use(path || '/', GraphQLHTTP({
           schema,

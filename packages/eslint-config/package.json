@@ -1,7 +1,8 @@
 {
   "name": "@graphql-sailboat/eslint-config",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": ".eslintrc.js",
+  "private": true,
   "license": "MIT",
   "devDependencies": {
     "eslint": "^7.2.0",
