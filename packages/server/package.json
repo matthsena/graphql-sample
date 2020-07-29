@@ -1,6 +1,6 @@
 {
-  "name": "@matthsena/graphql-sailboat",
-  "version": "1.0.4",
+  "name": "graphql-sailboat",
+  "version": "0.0.1",
   "description": "",
   "main": "src/app.ts",
   "scripts": {
@@ -8,15 +8,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/matthsena/graphql-sample.git"
+    "url": "git+https://github.com/matthsena/graphql-sailboat.git"
   },
   "keywords": [],
   "author": "Matheus Alexandre de Sena",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/matthsena/graphql-sample/issues"
+    "url": "https://github.com/matthsena/graphql-sailboat/issues"
   },
-  "homepage": "https://github.com/matthsena/graphql-sample#readme",
+  "homepage": "https://github.com/matthsena/graphql-sailboat#readme",
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.17.1",
@@ -40,7 +40,7 @@
     "babel-plugin-module-resolver": "^4.0.0"
   },
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
+    "registry": "https://npm.pkg.github.com/@matthsena"
   },
   "gitHead": "6a31f76bccc8ec7a0806689d22da1356aa148c72"
 }
