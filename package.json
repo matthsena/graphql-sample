@@ -26,6 +26,7 @@
   "devDependencies": {
     "@graphql-sailboat/eslint-config": "*",
     "jest": "^26.0.1",
+    "lerna": "^3.22.1",
     "ts-jest": "^26.1.0",
     "ts-node-dev": "^1.0.0-pre.49",
     "tsconfig-paths": "^3.9.0",

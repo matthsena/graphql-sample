@@ -3,6 +3,7 @@
     "version": "2.0.1",
     "description": "",
     "main": "index.js",
+    "private": true,
     "scripts": {
       "dev": "ts-node-dev -r tsconfig-paths/register --respawn --transpileOnly --ignore-watch node_modules --no-notify src/server.ts",
       "test:sample-imdb": "jest --verbose samples/imdb-top-movies/tests",
