@@ -1,5 +1,5 @@
 {
-  "name": "graphql-sailboat",
+  "name": "@matthsena/graphql-sailboat",
   "version": "1.0.3",
   "description": "",
   "main": "src/app.ts",
@@ -42,5 +42,5 @@
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"
   },
-  "gitHead": "7a3e3cecac5c6faf97f33f99b1b1c3190b3ac59d"
+  "gitHead": "6a31f76bccc8ec7a0806689d22da1356aa148c72"
 }
