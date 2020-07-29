@@ -1,8 +1,8 @@
 {
   "name": "graphql-sailboat",
-  "version": "0.0.1",
+  "version": "1.0.5",
   "description": "",
-  "main": "src/app.ts",
+  "main": "dist/app.js",
   "scripts": {
     "build": "babel src --extensions \".js,.ts\" --out-dir dist --copy-files --no-copy-ignored"
   },
@@ -38,9 +38,5 @@
     "@typescript-eslint/parser": "^3.3.0",
     "babel-jest": "^26.0.1",
     "babel-plugin-module-resolver": "^4.0.0"
-  },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/@matthsena"
-  },
-  "gitHead": "6a31f76bccc8ec7a0806689d22da1356aa148c72"
+  }
 }

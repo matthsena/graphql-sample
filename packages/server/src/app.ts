@@ -1,10 +1,17 @@
+/* eslint-disable import/prefer-default-export */
+/* eslint-disable class-methods-use-this */
 import express from 'express';
 import cors from 'cors';
 import GraphQLHTTP from 'express-graphql';
-import { GraphQLSchema } from 'graphql';
+import { GraphQLSchema, buildSchema } from 'graphql';
 
 interface IApp {
-  GraphQLServer(schema: GraphQLSchema, path?: string): void;
+  GraphQLServer(schema: string, resolvers: unknown, server: serverOptions): void;
+}
+
+type serverOptions = {
+  path?: string,
+  graphiql?: boolean
 }
 
 class App implements IApp {
@@ -20,12 +27,24 @@ class App implements IApp {
       this.express.use(express.json());
     }
 
-    public GraphQLServer(schema: GraphQLSchema, resolvers: any, path?: string): void {
+    private graphqlSchema(schema: string): GraphQLSchema {
       try {
-        this.express.use(path || '/', GraphQLHTTP({
-          schema,
+        if (!schema) {
+          throw new Error('Empty schema');
+        }
+
+        return buildSchema(schema);
+      } catch (error) {
+        throw new Error(error);
+      }
+    }
+
+    public GraphQLServer(schema: string, resolvers: unknown, server: serverOptions): void {
+      try {
+        this.express.use(server.path || '/', GraphQLHTTP({
+          schema: this.graphqlSchema(schema),
           rootValue: resolvers,
-          graphiql: <boolean> <unknown> process.env.GRAPHIQL || true,
+          graphiql: server.graphiql || false,
         }));
       } catch (error) {
         throw new Error(error);
@@ -33,4 +52,4 @@ class App implements IApp {
     }
 }
 
-export default new App();
+export const app = new App();
