@@ -13,12 +13,6 @@ module.exports = {
   plugins: [
     [
       "module-resolver",
-      {
-        alias: {
-          "@graphql-sailboat": "./src/@graphql-func",
-          "@app": "./src/app.js",
-        },
-      },
     ],
   ],
   ignore: ["**/*.spec.ts"],
