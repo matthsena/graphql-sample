@@ -1,8 +1,11 @@
 {
   "name": "graphql-sailboat",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "",
   "main": "dist/app.js",
+  "files": [
+    "dist/*"
+  ],
   "scripts": {
     "test": "jest --verbose",
     "build": "babel src --extensions \".js,.ts\" --out-dir dist --copy-files --no-copy-ignored"
@@ -11,7 +14,7 @@
     "type": "git",
     "url": "git+https://github.com/matthsena/graphql-sailboat.git"
   },
-  "keywords": [],
+  "keywords": ["graphql", "node-graphql", "graphql-server", "graphql-api"],
   "author": "Matheus Alexandre de Sena",
   "license": "MIT",
   "bugs": {
