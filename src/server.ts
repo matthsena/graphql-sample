@@ -1,3 +1,4 @@
+/* eslint-disable import/prefer-default-export */
 import graphqlHTTP from 'express-graphql';
 import { buildSchema } from 'graphql';
 import cors from 'cors';
@@ -26,4 +27,4 @@ const server = (schema: string, resolvers: unknown, serverOptions?: SailServerOp
   });
 };
 
-export default server;
+export { server };

@@ -14,7 +14,8 @@
     "emitDecoratorMetadata": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "baseUrl": "."
+    "baseUrl": ".",
+    "declaration": true
   },
-  "include": ["src/**/*"]
+  "include": ["src/**/*", "graphql-sailboat.d.ts"]
 }

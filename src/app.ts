@@ -1,9 +1,11 @@
+import { Client } from '../graphql-sailboat';
 import { setManyMiddlewares, setMiddleware } from './middlewares';
-import server from './server';
+import { server } from './server';
 
-export {
-  setManyMiddlewares,
-  setMiddleware,
+const client: Client = {
+  graphql: server,
+  manyMiddlewares: setManyMiddlewares,
+  middleware: setMiddleware,
 };
 
-export default server;
+export default client as Client;
