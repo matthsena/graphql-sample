@@ -1,4 +1,4 @@
-import server, { setMiddleware } from '../src/app';
+import client from '../src/app';
 
 const data = [{
   id: 1,
@@ -68,7 +68,7 @@ const resolvers = {
   },
 };
 
-setMiddleware(() => (req, res, next) => {
+client.middleware(() => (req, res, next) => {
   const auth = { login: 'user', password: 'pass' };
   const b64auth = (req.headers.authorization || '').split(' ')[1] || '';
   const [login, password] = Buffer.from(b64auth, 'base64').toString().split(':');
@@ -81,6 +81,6 @@ setMiddleware(() => (req, res, next) => {
   return res.status(401).send('Authentication required.');
 });
 
-server(schema, resolvers, {
+client.graphql(schema, resolvers, {
   port: 8000,
 });

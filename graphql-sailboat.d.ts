@@ -5,3 +5,9 @@ export type SailServerOptions = {
 }
 
 export type SailMiddleware = () => any;
+
+export type Client = {
+  graphql: any,
+  manyMiddlewares: any,
+  middleware: any,
+};

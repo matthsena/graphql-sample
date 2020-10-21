@@ -1,18 +1,17 @@
 {
   "name": "graphql-sailboat",
-  "version": "1.0.7",
+  "version": "1.0.21",
   "description": "",
   "main": "dist/app.js",
-  "types": "graphql-sailboat.d.ts",
+  "types": "dist/app.d.ts",
   "files": [
-    "dist/*",
-    "graphql-sailboat.d.ts"
+    "dist/*"
   ],
   "scripts": {
     "sample:basic": "ts-node-dev -r tsconfig-paths/register --respawn --ignore-watch node_modules --no-notify samples/basic.ts",
     "sample:middleware": "ts-node-dev -r tsconfig-paths/register --respawn --ignore-watch node_modules --no-notify samples/middleware.ts",
     "test": "jest --verbose",
-    "build": "babel src --extensions \".js,.ts\" --out-dir dist --copy-files --no-copy-ignored"
+    "build": "tsc"
   },
   "repository": {
     "type": "git",

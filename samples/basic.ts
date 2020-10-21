@@ -1,4 +1,4 @@
-import server from '../src/app';
+import client from '../src/app';
 
 const data = [{
   id: 1,
@@ -68,6 +68,6 @@ const resolvers = {
   },
 };
 
-server(schema, resolvers, {
+client.graphql(schema, resolvers, {
   port: 8000,
 });
