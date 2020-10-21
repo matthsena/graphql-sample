@@ -14,6 +14,16 @@ type serverOptions = {
   port?: number
 }
 
+const setMiddlewares = (middlewares: Array<object>): void => {
+  try {
+    if (!middlewares) {
+      throw new Error("Empty middlewares")
+    }
+  } catch {
+    
+  }
+}
+
 const server = (schema: string, resolvers: unknown, serverOptions?: serverOptions) => {
 
   app.use(serverOptions.path || '/graphql',

@@ -1,4 +1,2 @@
-gulpfile.js
-*.js
-dist
-*.spec.ts
+node_modules/
+dist/

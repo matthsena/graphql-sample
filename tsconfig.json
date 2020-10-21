@@ -7,20 +7,14 @@
     "outDir": "./dist",
     "rootDir": "./src",
     "removeComments": true,
-    "typeRoots": ["./node_modules/@types", "./src/@types"],
+    "typeRoots": ["./node_modules/@types"],
     "esModuleInterop": true,
     "resolveJsonModule": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "baseUrl": ".",
-    "paths": {
-      "@Interfaces": ["src/interfaces/Interfaces.ts"],
-      "@Controller": ["src/functions/controller.ts"],
-      "@Unidades": ["src/@choices/Unidades.ts"],
-      "@redis": ["src/cache/redis.ts"]
-    }
+    "baseUrl": "."
   },
   "include": ["src/**/*"]
 }

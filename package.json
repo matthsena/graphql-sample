@@ -14,7 +14,12 @@
     "type": "git",
     "url": "git+https://github.com/matthsena/graphql-sailboat.git"
   },
-  "keywords": ["graphql", "node-graphql", "graphql-server", "graphql-api"],
+  "keywords": [
+    "graphql",
+    "node-graphql",
+    "graphql-server",
+    "graphql-api"
+  ],
   "author": "Matheus Alexandre de Sena",
   "license": "MIT",
   "bugs": {
@@ -38,10 +43,14 @@
     "@types/express-graphql": "^0.9.0",
     "@types/graphql": "^14.5.0",
     "@types/jest": "^26.0.0",
-    "@typescript-eslint/eslint-plugin": "^3.3.0",
-    "@typescript-eslint/parser": "^3.3.0",
+    "@typescript-eslint/eslint-plugin": "^4.5.0",
+    "@typescript-eslint/parser": "^4.5.0",
     "babel-jest": "^26.0.1",
     "babel-plugin-module-resolver": "^4.0.0",
+    "eslint": "^7.11.0",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-import-resolver-node": "^0.3.4",
+    "eslint-plugin-import": "^2.22.1",
     "jest": "^26.0.1",
     "ts-jest": "^26.1.0",
     "ts-node-dev": "^1.0.0-pre.49",
