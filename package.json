@@ -8,6 +8,7 @@
     "dist/*"
   ],
   "scripts": {
+    "sample:basic": "ts-node-dev -r tsconfig-paths/register --respawn --ignore-watch node_modules --no-notify samples/basic.ts",
     "test": "jest --verbose",
     "build": "babel src --extensions \".js,.ts\" --out-dir dist --copy-files --no-copy-ignored"
   },
@@ -55,7 +56,7 @@
     "eslint-plugin-import": "^2.22.1",
     "jest": "^26.0.1",
     "ts-jest": "^26.1.0",
-    "ts-node-dev": "^1.0.0-pre.49",
+    "ts-node-dev": "^1.0.0",
     "tsconfig-paths": "^3.9.0",
     "typescript": "^3.9.5"
   }

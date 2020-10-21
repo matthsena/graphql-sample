@@ -1,4 +1,4 @@
-import express from 'express';
+import express, { NextFunction } from 'express';
 import cors from 'cors';
 
 const app = express();
@@ -6,4 +6,6 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-export default app;
+export default express;
+
+export { app, NextFunction };

@@ -1,7 +1,7 @@
-import app from './express';
+import { app, NextFunction } from './express';
 import { SailMiddleware } from '../graphql-sailboat';
 
-const setMiddleware = (middleware: SailMiddleware): void => {
+const setMiddleware = (middleware: SailMiddleware | NextFunction): void => {
   try {
     if (!middleware) {
       throw new Error('Empty middlewares');
@@ -13,7 +13,7 @@ const setMiddleware = (middleware: SailMiddleware): void => {
   }
 };
 
-const setManyMiddlewares = (middlewares: Array<SailMiddleware>): void => {
+const setManyMiddlewares = (middlewares: Array<SailMiddleware | NextFunction>): void => {
   try {
     if (!middlewares) {
       throw new Error('Empty middlewares');
